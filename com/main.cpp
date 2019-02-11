@@ -4,16 +4,23 @@
 #include <Windows.h>
 #include <ShObjIdl.h>
 
+#include <atlbase.h>	// Contains the declaration of CComPtr (Smart Pointer)
+
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)
 {
 	HREFTYPE hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
 
 	if (SUCCEEDED(hr))
 	{
-		IFileOpenDialog *pFileOpen;
+		//IFileOpenDialog *pFileOpen;
+
+		CComPtr<IFileOpenDialog> pFileOpen;
 
 		// Create the FileOpenDialog object.
-		hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_ALL, IID_IFileOpenDialog, reinterpret_cast<void**>(&pFileOpen));
+		// hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_ALL, IID_IFileOpenDialog, reinterpret_cast<void**>(&pFileOpen));
+		// hr = CoCreateInstance(__uuidof(FileOpenDialog), NULL, CLSCTX_ALL, __uuidof(pFileOpen), reinterpret_cast<void**>(&pFileOpen));	// using __uuidof
+
+		hr = pFileOpen.CoCreateInstance(__uuidof(FileOpenDialog));	// using SmartPointer CComPtr
 
 		if (SUCCEEDED(hr))
 		{
@@ -23,7 +30,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 			// Get the file name from the dialog box.
 			if (SUCCEEDED(hr))
 			{
-				IShellItem *pItem;
+				//IShellItem *pItem;
+				CComPtr<IShellItem> pItem;
 				hr = pFileOpen->GetResult(&pItem);
 				if (SUCCEEDED(hr))
 				{
@@ -36,10 +44,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 						MessageBox(NULL, pszFilePath, L"File Path", MB_OK);
 						CoTaskMemFree(pszFilePath);
 					}
-					pItem->Release();
+					//pItem->Release();
 				}
 			}
-			pFileOpen->Release();
+			// pFileOpen->Release();
 		}
 
 		CoUninitialize();
