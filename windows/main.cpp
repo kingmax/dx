@@ -72,6 +72,13 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			EndPaint(hwnd, &ps);
 		}
 		return 0;
+
+	case WM_CLOSE:
+		if (MessageBox(hwnd, L"真的要关掉吗？", L"My caption", MB_OKCANCEL) == IDOK)
+		{
+			DestroyWindow(hwnd);
+		}
+		return 0;
 	}
 
 	return DefWindowProc(hwnd, uMsg, wParam, lParam);
