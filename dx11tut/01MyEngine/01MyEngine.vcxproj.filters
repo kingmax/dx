@@ -24,6 +24,9 @@
     <ClInclude Include="graphicsclass.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="D3DClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,5 +41,11 @@
     <ClCompile Include="graphicsclass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="D3DClass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
