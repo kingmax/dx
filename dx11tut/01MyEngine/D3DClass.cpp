@@ -214,6 +214,12 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 
 	//Now we need to setup the depth stencil description. This allows us to control what type of depth test Direct3D will do for each pixel. 
 	ZeroMemory(&depthStencilDesc, sizeof(depthStencilDesc));
+	
+	depthStencilDesc.DepthEnable = true;
+	depthStencilDesc.StencilWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+
+
 
 }
 
