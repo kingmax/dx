@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+	<asset>
+		<contributor>
+			<author>jason.li</author>
+			<authoring_tool>NVIDIA FX Composer 2.5</authoring_tool>
+			<comments/>
+			<copyright/>
+		</contributor>
+		<created>2019-04-17T02:54:43Z</created>
+		<keywords>FXComposer, NVIDIA</keywords>
+		<modified>2019-04-17T02:54:43Z</modified>
+		<subject/>
+		<title/>
+		<unit/>
+		<up_axis>Y_UP</up_axis>
+	</asset>
+</COLLADA>
