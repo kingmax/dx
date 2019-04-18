@@ -12,11 +12,11 @@
         <CompilerOptions value="" />
       </settings>
       <settings category="Project\Paths">
-        <Includes value="" />
-        <Models value="" />
+        <Includes value=".\CgFX\include;.\HLSL\include;.\CgFX;" />
+        <Models value=".\COLLADA;.\models;" />
         <Scripts value="" />
-        <Shaders value="" />
-        <Textures value="" />
+        <Shaders value=".\COLLADA;.\CgFX\include;.\CgFX;.\HLSL\include;.\HLSL;" />
+        <Textures value=".\textures;" />
       </settings>
       <settings category="Project\Settings">
         <BindLightToUnboundMaterials value="False" />
@@ -37,11 +37,11 @@
         <CompilerOptions value="" />
       </settings>
       <settings category="Project\Paths">
-        <Includes value="" />
-        <Models value="" />
+        <Includes value=".\CgFX\include;.\HLSL\include;.\CgFX;" />
+        <Models value=".\COLLADA;.\models;" />
         <Scripts value="" />
-        <Shaders value="" />
-        <Textures value="" />
+        <Shaders value=".\COLLADA;.\CgFX\include;.\CgFX;.\HLSL\include;.\HLSL;" />
+        <Textures value=".\textures;" />
       </settings>
       <settings category="Project\Settings">
         <BindLightToUnboundMaterials value="False" />
@@ -56,12 +56,12 @@
   <activeAssetCollection uri="Document1.dae" />
   <customConfigurations>
     <FXComposer.Scene.Services.FXRenderPortService>
-      <defaultScene sceneUri="Document1.dae#DefaultScene" />
+      <defaultScene sceneUri="Document1.dae#Scene" />
       <camera type="Top" scene="Document1.dae#DefaultScene">
         <focallength>2.144152</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>1 -1.270714E-09 0 0 0 5.960464E-08 -0.9999999 0 1.270714E-09 0.9999999 5.960464E-08 0 0.1074073 2.931652 0 1 </viewtransform>
+        <viewtransform>1 -1.270714E-09 -2.775558E-17 0 2.775558E-17 5.960464E-08 -0.9999999 0 1.270714E-09 0.9999999 5.960464E-08 0 0.1074073 2.931652 0 1 </viewtransform>
       </camera>
       <camera type="Front" scene="Document1.dae#DefaultScene">
         <focallength>2.144152</focallength>
@@ -73,18 +73,51 @@
         <focallength>2.144152</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 0.9999999 0 5.960464E-08 0 2.251559 0.7875 0 1 </viewtransform>
+        <viewtransform>5.960464E-08 0 -0.9999998 0 0 1 0 0 0.9999998 0 5.960464E-08 0 2.251559 0.7875 0 1 </viewtransform>
       </camera>
       <camera type="Perspective" scene="Document1.dae#DefaultScene">
         <focallength>6.012075</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>0.5819559 6.679076E-07 -0.8132203 0 -0.3344452 0.911518 -0.2393346 0 0.7412648 0.4112598 0.5304635 0 4.39142 3.234301 3.43198 1 </viewtransform>
+        <viewtransform>0.593033 7.316236E-07 -0.8051779 0 -0.4466993 0.8319952 -0.329004 0 0.6699041 0.5547827 0.493401 0 3.962395 4.097173 3.209158 1 </viewtransform>
+      </camera>
+      <camera type="Top" scene="Document1.dae#Scene">
+        <focallength>1.478916</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999999 0 0 0.9999999 5.960464E-08 0 0 1.478916 0 1 </viewtransform>
+      </camera>
+      <camera type="Front" scene="Document1.dae#Scene">
+        <focallength>1.478916</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.478916 1 </viewtransform>
+      </camera>
+      <camera type="Right" scene="Document1.dae#Scene">
+        <focallength>1.478916</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 0.9999999 0 5.960464E-08 0 1.478916 0 0 1 </viewtransform>
+      </camera>
+      <camera type="Perspective" scene="Document1.dae#Scene">
+        <focallength>8.010169</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>0.7538091 -1.16588E-06 -0.6570933 0 -0.4357361 0.7485066 -0.4998722 0 0.4918392 0.6631274 0.5642306 0 4.072196 5.512913 4.374908 1 </viewtransform>
       </camera>
       <renderPort name="Render" />
     </FXComposer.Scene.Services.FXRenderPortService>
     <FXComposer.Scene.Services.FXSceneService>
       <grid_settings sceneUri="Document1.dae#DefaultScene">
+        <show_grid value="True" />
+        <axes_color value="0, 0, 0, 1" />
+        <size value="17.32051" />
+        <major_ticks_color value="0.25, 0.25, 0.25, 1" />
+        <major_tick_every_nth value="10" />
+        <ticks_color value="0.425, 0.425, 0.425, 1" />
+        <ticks_interval_in_units value="0.3464102" />
+      </grid_settings>
+      <grid_settings sceneUri="Document1.dae#Scene">
         <show_grid value="True" />
         <axes_color value="0, 0, 0, 1" />
         <size value="17.32051" />
