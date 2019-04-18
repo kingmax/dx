@@ -9,7 +9,7 @@
 		</contributor>
 		<created>2019-04-17T01:20:21Z</created>
 		<keywords>FXComposer, NVIDIA</keywords>
-		<modified>2019-04-17T09:58:46Z</modified>
+		<modified>2019-04-17T10:33:57Z</modified>
 		<subject/>
 		<title/>
 		<unit/>
@@ -56,6 +56,16 @@
 						</technique_common>
 					</bind_material>
 				</instance_geometry>
+			</node>
+			<node id="Node5" name="Node5" layer="">
+				<matrix>1 0 0 0 0 1 0 338.145 0 0 1 0 0 0 0 1</matrix>
+				<extra type="orcaware">
+					<technique profile="NVIDIA">
+						<instance_visual_model id="ModelInstance1" name="pCube" url="#Model1">
+							<instance_visual_style url="#VisualStyle1"/>
+						</instance_visual_model>
+					</technique>
+				</extra>
 			</node>
 			<extra type="evaluatescene_enables">
 				<technique profile="NVIDIA_FXCOMPOSER"/>
@@ -180,7 +190,7 @@
 				<technique_hint platform="PC-D3D" ref="technique0"/>
 				<technique_hint platform="PC-D3D10" ref="main10"/>
 				<setparam ref="WVP">
-					<float4x4>1.30282 1.90854e-007 7.82989e-008 0 2.04703e-007 1.36243 -2.66114e-007 1.40212e-006 -1.49021e-008 8.94124e-008 -0.495915 4.95734 -1.49012e-008 8.9407e-008 -0.495884 4.95884</float4x4>
+					<float4x4>527.151 0.000125748 -3.15349e-005 -0.00413494 0.000131419 551.27 -0.000104808 210.692 3.08789e-005 9.81377e-005 -516.185 1509.45 1.20029e-005 3.8147e-005 -200.646 2004.99</float4x4>
 				</setparam>
 			</instance_effect>
 		</material>
@@ -231,7 +241,7 @@
 				<technique_hint platform="PC-D3D10" ref="main10"/>
 				<technique_hint platform="PC-D3D" ref="technique0"/>
 				<setparam ref="WorldViewProjection">
-					<float4x4>1.30282 1.90854e-007 7.82989e-008 0 2.04703e-007 1.36243 -2.66114e-007 1.40212e-006 -1.49021e-008 8.94124e-008 -0.495915 4.95734 -1.49012e-008 8.9407e-008 -0.495884 4.95884</float4x4>
+					<float4x4>527.151 0.000125748 -3.15349e-005 -0.00413494 0.000131419 551.27 -0.000104808 210.692 3.08789e-005 9.81377e-005 -516.185 1509.45 1.20029e-005 3.8147e-005 -200.646 2004.99</float4x4>
 				</setparam>
 			</instance_effect>
 		</material>
@@ -240,7 +250,7 @@
 				<technique_hint platform="PC-D3D10" ref="main10"/>
 				<technique_hint platform="PC-D3D" ref="technique0"/>
 				<setparam ref="WorldViewProjection">
-					<float4x4>1.30282 1.90854e-007 7.82989e-008 0 2.04703e-007 1.36243 -2.66114e-007 1.40212e-006 -1.49021e-008 8.94124e-008 -0.495915 4.95734 -1.49012e-008 8.9407e-008 -0.495884 4.95884</float4x4>
+					<float4x4>527.151 0.000125748 -3.15349e-005 -0.00413494 0.000131419 551.27 -0.000104808 210.692 3.08789e-005 9.81377e-005 -516.185 1509.45 1.20029e-005 3.8147e-005 -200.646 2004.99</float4x4>
 				</setparam>
 				<setparam ref="ColorTexture">
 					<surface type="2D">
@@ -3165,4 +3175,30 @@
 	<scene>
 		<instance_visual_scene url="#DefaultScene"/>
 	</scene>
+	<extra type="orcaware">
+		<technique profile="NVIDIA">
+			<library_visual_models>
+				<visual_model id="Model" name="pCube">
+					<instance_visual_scene url="cache-pCube-6c9c83a9-41dd-4819-935b-4047eab7caf6.dae#Scene"/>
+					<visual_style_ref name="VisualStyle" url="#VisualStyle"/>
+				</visual_model>
+				<visual_model id="Model1" name="pCube">
+					<instance_visual_scene url="cache-pCube-64a6d9d3-fbbd-4c1d-bc33-e62824e2542a.dae#Scene"/>
+					<visual_style_ref name="VisualStyle1" url="#VisualStyle1"/>
+				</visual_model>
+			</library_visual_models>
+			<library_visual_styles>
+				<visual_style id="VisualStyle" name="VisualStyle" scene="cache-pCube-6c9c83a9-41dd-4819-935b-4047eab7caf6.dae#Scene"/>
+				<visual_style id="VisualStyle1" name="VisualStyle1" scene="cache-pCube-64a6d9d3-fbbd-4c1d-bc33-e62824e2542a.dae#Scene">
+					<owner ref="Node">
+						<swap_material symbol="initialShadingGroup" target="#TextureMapping">
+							<extra type="bind_object">
+								<technique profile="NVIDIA_FXCOMPOSER"/>
+							</extra>
+						</swap_material>
+					</owner>
+				</visual_style>
+			</library_visual_styles>
+		</technique>
+	</extra>
 </COLLADA>

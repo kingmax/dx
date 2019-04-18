@@ -1,25 +1,16 @@
-/*
-
-% Description of my shader.
-% Second line of description for my shader.
-
-keywords: material classic
-
-date: YYMMDD
-
-*/
-
-/****************** Resources ******************/
 #define FLIP_TEXTURE_Y 1
+
+cbuffer CBufferPerFrame
+{
+	float4 AmbientColor : AMBIENT <
+		string UIName = "Ambient Light";
+		string UIWidget = "Color";
+	> = {1.0f, 1.0f, 1.0f, 1.0f};
+};
 
 cbuffer CBufferPerObject
 {
-	float4x4 WorldViewProjection : WORLDVIEWPROJECTION <string UIWidget="None";>;
-};
-
-RasterizerState DisableCulling
-{
-	CullMode = NONE;
+	float4x4 WorldViewProjection : WORLDVIEWPROJECTION < string UIWidget = "None"; >;
 };
 
 Texture2D ColorTexture <
@@ -30,14 +21,17 @@ Texture2D ColorTexture <
 
 SamplerState ColorSampler
 {
-	//Filter = MIN_MAG_MIP_LINEAR;
-	//Filter = MIN_MAG_MIP_POINT;
-	Filter = ANISOTROPIC;
+	Filter = MIN_MAG_MIP_LINEAR;
 	AddressU = WRAP;
-	AddressV = CLAMP;
+	AddressV = WRAP;
 };
 
-/****************** Data Structures ******************/
+RasterizerState DisableCulling
+{
+	CullMode = NONE;
+};
+
+// Data Structures
 struct VS_INPUT
 {
 	float4 ObjectPosition : POSITION;
@@ -50,17 +44,17 @@ struct VS_OUTPUT
 	float2 TextureCoordinate : TEXCOORD;
 };
 
-/****************** Utility Functions ******************/
+// Utility Functions
 float2 get_corrected_texture_coordinate(float2 textureCoordinate)
 {
 	#if FLIP_TEXTURE_Y
-		return float2(textureCoordinate.x, 1.0-textureCoordinate.y);
+		return float2(textureCoordinate.x, 1 - textureCoordinate.y);
 	#else
 		return textureCoordinate;
 	#endif	
 }
 
-/****************** Vertex Shader ******************/
+// Vertex Shader
 VS_OUTPUT vertex_shader(VS_INPUT IN)
 {
 	VS_OUTPUT OUT = (VS_OUTPUT)0;
@@ -69,13 +63,16 @@ VS_OUTPUT vertex_shader(VS_INPUT IN)
 	return OUT;
 }
 
-/****************** Pixel Shader ******************/
+// Pixel Shader
 float4 pixel_shader(VS_OUTPUT IN) : SV_Target
 {
-	return ColorTexture.Sample(ColorSampler, IN.TextureCoordinate);
+	float4 OUT = (float4)0;
+	OUT = ColorTexture.Sample(ColorSampler, IN.TextureCoordinate);
+	OUT.rgb *= AmbientColor.rgb * AmbientColor.a; // color * intensity
+	return OUT;
 }
 
-/****************** Techniques ******************/
+// Techniques
 technique10 main10
 {
 	pass p0
