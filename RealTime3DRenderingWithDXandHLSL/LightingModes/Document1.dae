@@ -9,7 +9,7 @@
 		</contributor>
 		<created>2019-04-18T01:16:00Z</created>
 		<keywords>FXComposer, NVIDIA</keywords>
-		<modified>2019-04-18T01:46:02Z</modified>
+		<modified>2019-04-18T04:53:56Z</modified>
 		<subject/>
 		<title/>
 		<unit/>
@@ -22,7 +22,7 @@
 				<instance_geometry url="#Teapot" sid="GeometryInstance" name="Teapot">
 					<bind_material>
 						<technique_common>
-							<instance_material symbol="TeapotMaterial" target="#AmbientLighting"/>
+							<instance_material symbol="TeapotMaterial" target="#DiffuseLighting"/>
 						</technique_common>
 					</bind_material>
 				</instance_geometry>
@@ -32,14 +32,10 @@
 				<instance_geometry url="#Plane1" sid="GeometryInstance2" name="Plane1">
 					<bind_material>
 						<technique_common>
-							<instance_material symbol="PlaneMaterial" target="#DefaultMaterial"/>
+							<instance_material symbol="PlaneMaterial" target="#AmbientLighting"/>
 						</technique_common>
 					</bind_material>
 				</instance_geometry>
-			</node>
-			<node id="Node3" name="Node3" layer="">
-				<matrix>0.71215 -0.408833 -0.570699 -2.469 0.662302 0.121677 0.739291 1.40332 -0.232806 -0.904462 0.357423 -0.132498 0 0 0 1</matrix>
-				<instance_light url="#SpotLight" sid="Light" name="SpotLight"/>
 			</node>
 			<extra type="evaluatescene_enables">
 				<technique profile="NVIDIA_FXCOMPOSER"/>
@@ -133,6 +129,18 @@
 				</technique>
 			</profile_COMMON>
 		</effect>
+		<effect id="Effect2" name="DiffuseLighting">
+			<profile_COMMON>
+				<technique sid="__fxc_remove_profile_COMMON">
+					<constant/>
+				</technique>
+			</profile_COMMON>
+			<extra type="import">
+				<technique profile="NVIDIA_FXCOMPOSER">
+					<import url="DiffuseLighting.fx" compiler_options="" profile="fx"/>
+				</technique>
+			</extra>
+		</effect>
 	</library_effects>
 	<library_materials>
 		<material id="AmbientLighting" name="AmbientLighting_Material">
@@ -143,13 +151,13 @@
 					<float4>1 1 1 0.5</float4>
 				</setparam>
 				<setparam ref="WorldViewProjection">
-					<float4x4>1.31343 0.688891 -1.29003 -4.54021 0.709335 1.30633 1.4198 4.41992 -0.493175 0.514762 -0.227231 7.09803 -0.493145 0.51473 -0.227217 7.09946</float4x4>
+					<float4x4>1.69299 0 0 0.618306 -4.09406e-008 1.77045 -1.02352e-007 -1.80796 -2.98041e-008 3.72552e-008 -0.644429 6.4044 -2.98023e-008 3.72529e-008 -0.64439 6.40589</float4x4>
 				</setparam>
 				<setparam ref="ColorTexture">
 					<surface type="2D">
 						<init_from>rockwall</init_from>
 						<format>R8G8B8</format>
-						<size>512 512 1</size>
+						<size>1024 512 1</size>
 					</surface>
 				</setparam>
 			</instance_effect>
@@ -193,6 +201,34 @@
 				</setparam>
 				<setparam ref="LightCount">
 					<int>4</int>
+				</setparam>
+			</instance_effect>
+		</material>
+		<material id="DiffuseLighting" name="DiffuseLighting_Material">
+			<instance_effect url="#Effect2">
+				<technique_hint platform="PC-D3D10" ref="main10"/>
+				<technique_hint platform="PC-D3D" ref="technique0"/>
+				<setparam ref="AmbientColor">
+					<float4>1 1 1 1</float4>
+				</setparam>
+				<setparam ref="LightColor">
+					<float4>1 1 1 1</float4>
+				</setparam>
+				<setparam ref="LightDirection">
+					<float3>-1 0 -1</float3>
+				</setparam>
+				<setparam ref="WorldViewProjection">
+					<float4x4>1.69299 0 0 0.618306 -4.09406e-008 1.77045 -1.02352e-007 -1.80796 -2.98041e-008 3.72552e-008 -0.644429 6.4044 -2.98023e-008 3.72529e-008 -0.64439 6.40589</float4x4>
+				</setparam>
+				<setparam ref="World">
+					<float4x4>0.375006 -0.215513 0.477663 0 4.30208e-007 0.587373 0.265012 0 -0.524031 -0.154225 0.341825 0 0 0 0 1</float4x4>
+				</setparam>
+				<setparam ref="ColorTexture">
+					<surface type="2D">
+						<init_from>rockwall</init_from>
+						<format>R8G8B8</format>
+						<size>1024 512 1</size>
+					</surface>
 				</setparam>
 			</instance_effect>
 		</material>

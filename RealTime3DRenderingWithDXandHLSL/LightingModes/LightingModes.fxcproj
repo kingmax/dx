@@ -76,10 +76,10 @@
         <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 0.9999999 0 5.960464E-08 0 2.251559 0.7875 0 1 </viewtransform>
       </camera>
       <camera type="Perspective" scene="Document1.dae#DefaultScene">
-        <focallength>5.891008</focallength>
+        <focallength>6.012075</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>0.7071065 -1.716868E-07 -0.7071068 0 -0.4082483 0.8164966 -0.4082484 0 0.5773502 0.5773504 0.57735 0 3.508583 4.188676 3.401174 1 </viewtransform>
+        <viewtransform>0.5819559 6.679076E-07 -0.8132203 0 -0.3344452 0.911518 -0.2393346 0 0.7412648 0.4112598 0.5304635 0 4.39142 3.234301 3.43198 1 </viewtransform>
       </camera>
       <renderPort name="Render" />
     </FXComposer.Scene.Services.FXRenderPortService>
