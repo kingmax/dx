@@ -112,17 +112,21 @@ float4 pixel_shader(VS_OUTPUT IN) : SV_Target
 		diffuse = LightColor.rgb * LightColor.a * N_dot_L * color.rgb;
 		
 		/*
-			Phong Lighting Model::
-			SpecularPhong = (R dot V)^s
-			R is the reflection vector:
-			R = 2 * (N dot L) * N - L
-			V is the view direction
+			Blinn-Phong Lighting Model::
+			Specular_BlinnPhong = (N dot H)^s
+			N is the surface normal
+			H is halfway between the view and light vectors
+			H = (L + V) / |L + V|
 			s specifies the size of the highlight
 		*/
-		float3 reflectionDir = normalize(2 * N_dot_L * normal - lightDir);
-		float R_dot_V = dot(reflectionDir, viewDir);
-		float S = pow(saturate(R_dot_V), SpecularPower); // saturate ref: http://developer.download.nvidia.com/cg/saturate.html
-		specular = SpecularColor.rgb * SpecularColor.a * min(S, color.w); // specular = R.V^n with gloss map stored in color texture's alpha channel
+		float3 halfVector = normalize(lightDir + viewDir);
+		float N_dot_H = saturate(dot(normal, halfVector));
+		float S = pow(N_dot_H, SpecularPower);
+		specular = SpecularColor.rgb * SpecularColor.a * min(S, color.w); // with gloss map in the color texture's alpha channel
+		//float3 reflectionDir = normalize(2 * N_dot_L * normal - lightDir);
+		//float R_dot_V = dot(reflectionDir, viewDir);
+		//float S = pow(saturate(R_dot_V), SpecularPower); // saturate ref: http://developer.download.nvidia.com/cg/saturate.html
+		//specular = SpecularColor.rgb * SpecularColor.a * min(S, color.a); // specular = R.V^n with gloss map stored in color texture's alpha channel
 	}
 	
 	OUT.rgb = ambient + diffuse + specular;
