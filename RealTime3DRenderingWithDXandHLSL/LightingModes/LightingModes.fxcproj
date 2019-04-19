@@ -56,7 +56,7 @@
   <activeAssetCollection uri="Document1.dae" />
   <customConfigurations>
     <FXComposer.Scene.Services.FXRenderPortService>
-      <defaultScene sceneUri="Document1.dae#Scene1" />
+      <defaultScene sceneUri="Document1.dae#Scene2" />
       <camera type="Top" scene="Document1.dae#DefaultScene">
         <focallength>2.144152</focallength>
         <fov>40</fov>
@@ -129,6 +129,30 @@
         <zoomrect>0 0 1 1</zoomrect>
         <viewtransform>0.7167196 -5.663024E-08 -0.6973616 0 -0.3708569 0.8468699 -0.3811516 0 0.5905747 0.5318 0.606968 0 4.151226 3.738091 4.266458 1 </viewtransform>
       </camera>
+      <camera type="Top" scene="Document1.dae#Scene2">
+        <focallength>1.804871</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999999 0 0 1 5.960465E-08 0 0 1.804871 0 1 </viewtransform>
+      </camera>
+      <camera type="Front" scene="Document1.dae#Scene2">
+        <focallength>1.804871</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.804871 1 </viewtransform>
+      </camera>
+      <camera type="Right" scene="Document1.dae#Scene2">
+        <focallength>1.804871</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 1 0 5.960465E-08 0 1.804871 0 0 1 </viewtransform>
+      </camera>
+      <camera type="Perspective" scene="Document1.dae#Scene2">
+        <focallength>6.514986</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>0.6874838 3.731297E-07 -0.7261996 0 -0.3777388 0.8540699 -0.3576001 0 0.6202251 0.5201581 0.5871593 0 4.254269 2.689938 4.218935 1 </viewtransform>
+      </camera>
       <renderPort name="Render" />
     </FXComposer.Scene.Services.FXRenderPortService>
     <FXComposer.Scene.Services.FXSceneService>
@@ -151,6 +175,15 @@
         <ticks_interval_in_units value="0.3464102" />
       </grid_settings>
       <grid_settings sceneUri="Document1.dae#Scene1">
+        <show_grid value="True" />
+        <axes_color value="0, 0, 0, 1" />
+        <size value="17.32051" />
+        <major_ticks_color value="0.25, 0.25, 0.25, 1" />
+        <major_tick_every_nth value="10" />
+        <ticks_color value="0.425, 0.425, 0.425, 1" />
+        <ticks_interval_in_units value="0.3464102" />
+      </grid_settings>
+      <grid_settings sceneUri="Document1.dae#Scene2">
         <show_grid value="True" />
         <axes_color value="0, 0, 0, 1" />
         <size value="17.32051" />
