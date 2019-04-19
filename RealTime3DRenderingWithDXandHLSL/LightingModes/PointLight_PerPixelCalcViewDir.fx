@@ -89,8 +89,10 @@ struct VS_OUTPUT
 	float4 Position : SV_Position;
 	float3 Normal : NORMAL;
 	float2 TextureCoordinate : TEXCOORD0;
-	float4 LightDirection : TEXCOORD1;
-	float3 ViewDirection  : TEXCOORD2;
+	//float4 LightDirection : TEXCOORD1;
+	float3 WorldPosition : TEXCOORD1;
+	//float3 ViewDirection  : TEXCOORD2;
+	float Attenuation : TEXCOORD2;
 };
 
 // Vertex shader
@@ -100,13 +102,11 @@ VS_OUTPUT vertex_shader(VS_INPUT IN)
 	OUT.Position = mul(IN.ObjectPosition, WorldViewProjection);
 	OUT.Normal = normalize(mul(float4(IN.Normal, 0), World).xyz);
 	OUT.TextureCoordinate = get_corrected_texture_coordinate(IN.TextureCoordinate);
-	//OUT.LightDirection = normalize(-LightDirection);
-	float3 worldPosition = mul(IN.ObjectPosition, World).xyz;
-	float3 lightDirection = LightPosition - worldPosition;
-	OUT.LightDirection.xyz = normalize(lightDirection);
-	// Attenuation = 1.0 - ( |lightDirection| / lightRadius )
-	OUT.LightDirection.w = saturate(1.0f - (length(lightDirection) / LightRadius)); // Attenuation
-	OUT.ViewDirection = normalize(CameraPosition - worldPosition);
+	
+	OUT.WorldPosition = mul(IN.ObjectPosition, World).xyz;
+	float3 lightDirection = LightPosition - OUT.WorldPosition;
+	OUT.Attenuation = saturate(1.0f - (length(lightDirection)/LightRadius));
+	
 	return OUT;
 }
 
@@ -119,18 +119,22 @@ float4 pixel_shader(VS_OUTPUT IN) : SV_Target
 	float3 specular = (float3)0;
 	
 	float3 normal = normalize(IN.Normal);
-	float3 light = normalize(IN.LightDirection.xyz);
+	//float3 light = normalize(IN.LightDirection.xyz);
+	float3 light = normalize(LightPosition - IN.WorldPosition);
 	float N_dot_L = dot(normal, light);
 	
-	float3 view = normalize(IN.ViewDirection);
+	//float3 view = normalize(IN.ViewDirection);
+	float3 view = normalize(CameraPosition - IN.WorldPosition);
 	float3 halfVec = normalize(light + view);
 	float N_dot_H = dot(normal, halfVec);
 	
 	float4 color = ColorTexture.Sample(ColorSampler, IN.TextureCoordinate);
 	float4 lightCoefficients = lit(N_dot_L, N_dot_H, SpecularPower);
 	ambient = get_vector_color_contribution(AmbientColor, color.rgb);
-	diffuse = get_vector_color_contribution(LightColor, color.rgb * lightCoefficients.y) * IN.LightDirection.w; // using Attenuation
-	specular = get_scalar_color_contribution(SpecularColor, min(lightCoefficients.z, color.w)) * IN.LightDirection.w; // Attenuation
+	//diffuse = get_vector_color_contribution(LightColor, color.rgb * lightCoefficients.y) * IN.LightDirection.w; // using Attenuation
+	//specular = get_scalar_color_contribution(SpecularColor, min(lightCoefficients.z, color.w)) * IN.LightDirection.w; // Attenuation
+	diffuse = get_vector_color_contribution(LightColor, color.rgb * lightCoefficients.y) * IN.Attenuation;
+	specular = get_scalar_color_contribution(SpecularColor, min(lightCoefficients.z, color.w)) * IN.Attenuation;
 	
 	OUT.rgb = ambient + diffuse + specular;
 	OUT.a = 1.0f;
