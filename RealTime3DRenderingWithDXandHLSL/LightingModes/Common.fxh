@@ -12,4 +12,18 @@ float2 get_corrected_texture_coordinate(float2 textureCoordinate)
 	#endif
 }
 
+float3 get_vector_color_contribution(float4 light, float3 color)
+{
+	// Color (.rgb) * Intensity (.a)
+	return light.rgb * light.a * color;
+}
+
+float3 get_scalar_color_contribution(float4 light, float color)
+{
+	// Color (.rgb) * Intensity (.a)
+	return light.rgb * light.a * color;
+}
+
+
+
 #endif
