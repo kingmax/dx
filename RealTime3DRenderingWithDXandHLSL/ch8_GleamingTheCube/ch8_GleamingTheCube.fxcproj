@@ -56,12 +56,12 @@
   <activeAssetCollection uri="../../ch8_GleamingTheCube/Document1.dae" />
   <customConfigurations>
     <FXComposer.Scene.Services.FXRenderPortService>
-      <defaultScene sceneUri="../../ch8_GleamingTheCube/Document1.dae#DefaultScene" />
+      <defaultScene sceneUri="../../ch8_GleamingTheCube/Document1.dae#Scene" />
       <camera type="Top" scene="../../ch8_GleamingTheCube/Document1.dae#DefaultScene">
         <focallength>1.804871</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999999 0 0 1 5.960465E-08 0 0 1.804871 0 1 </viewtransform>
+        <viewtransform>1 0 0 0 0 1.788139E-07 -0.9999998 0 0 0.9999999 1.788139E-07 0 0 1.804871 0 1 </viewtransform>
       </camera>
       <camera type="Front" scene="../../ch8_GleamingTheCube/Document1.dae#DefaultScene">
         <focallength>1.804871</focallength>
@@ -73,18 +73,51 @@
         <focallength>1.804871</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 1 0 5.960465E-08 0 1.804871 0 0 1 </viewtransform>
+        <viewtransform>1.788139E-07 0 -0.9999998 0 0 1 0 0 0.9999999 0 1.788139E-07 0 1.804871 0 0 1 </viewtransform>
       </camera>
       <camera type="Perspective" scene="../../ch8_GleamingTheCube/Document1.dae#DefaultScene">
-        <focallength>3.441231</focallength>
+        <focallength>5.572669</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>-0.9926295 -1.363181E-07 0.1211911 0 0.01153229 0.995462 0.09445766 0 -0.1206412 0.09515908 -0.9881251 0 -0.4151568 0.3274646 -3.400365 1 </viewtransform>
+        <viewtransform>0.8288461 8.443445E-07 -0.5594768 0 -0.1435991 0.9665 -0.2127359 0 0.5407341 0.2566659 0.8010799 0 3.440209 2.159851 4.329502 1 </viewtransform>
+      </camera>
+      <camera type="Top" scene="../../ch8_GleamingTheCube/Document1.dae#Scene">
+        <focallength>2.410255</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999999 0 0 0.9999999 5.960464E-08 0 0 2.410255 0 1 </viewtransform>
+      </camera>
+      <camera type="Front" scene="../../ch8_GleamingTheCube/Document1.dae#Scene">
+        <focallength>2.410255</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>1 0 0 0 0 1 0 0 0 0 1 0 0 0 2.410255 1 </viewtransform>
+      </camera>
+      <camera type="Right" scene="../../ch8_GleamingTheCube/Document1.dae#Scene">
+        <focallength>2.410255</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 0.9999999 0 5.960464E-08 0 2.410255 0 0 1 </viewtransform>
+      </camera>
+      <camera type="Perspective" scene="../../ch8_GleamingTheCube/Document1.dae#Scene">
+        <focallength>3.502913</focallength>
+        <fov>40</fov>
+        <zoomrect>0 0 1 1</zoomrect>
+        <viewtransform>-0.1854295 6.856452E-07 -0.9826575 0 -0.5998008 0.7921038 0.1131841 0 0.7783668 0.6103865 -0.1468791 0 2.686629 2.067248 -0.5775877 1 </viewtransform>
       </camera>
       <renderPort name="Render" />
     </FXComposer.Scene.Services.FXRenderPortService>
     <FXComposer.Scene.Services.FXSceneService>
       <grid_settings sceneUri="../../ch8_GleamingTheCube/Document1.dae#DefaultScene">
+        <show_grid value="True" />
+        <axes_color value="0, 0, 0, 1" />
+        <size value="17.32051" />
+        <major_ticks_color value="0.25, 0.25, 0.25, 1" />
+        <major_tick_every_nth value="10" />
+        <ticks_color value="0.425, 0.425, 0.425, 1" />
+        <ticks_interval_in_units value="0.3464102" />
+      </grid_settings>
+      <grid_settings sceneUri="../../ch8_GleamingTheCube/Document1.dae#Scene">
         <show_grid value="True" />
         <axes_color value="0, 0, 0, 1" />
         <size value="17.32051" />
