@@ -76,6 +76,11 @@ float3 get_light_contribution(LIGHT_CONTRIBUTION_DATA IN)
 	return diffuse + specular;
 }
 
-
+// FogAmount = (|V|-fogStart) / fogRange, V is the viewDirection
+// ColorFinal = lerp(litColor, fogColor, FogAmount)
+float get_fog_amount(float3 viewDirection, float fogStart, float fogRange)
+{
+	return saturate( (length(viewDirection) - fogStart) / (fogRange) );
+}
 
 #endif

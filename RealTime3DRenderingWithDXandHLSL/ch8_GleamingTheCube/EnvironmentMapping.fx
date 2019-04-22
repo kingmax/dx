@@ -88,6 +88,8 @@ float4 pixel_shader(VS_OUTPUT IN) : SV_Target
 	float3 environment = EnvironmentMap.Sample(TrilinearSampler, IN.ReflectionVector).rgb;
 	float3 reflection = get_vector_color_contribution(EnvColor, environment);
 	
+	// Linear Interpolation = x * (1 - s) + (y * s), s range is [0.0, 1.0]
+	// ColorFinal = ambient * (1 – ReflectionAmount) + (reflection * ReflectionAmount)
 	OUT.rgb = lerp(ambient, reflection, ReflectionAmount);
 	
 	return OUT;
