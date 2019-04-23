@@ -98,12 +98,12 @@ struct VS_OUTPUT
 
 // FogAmount = (|V|-fogStart) / fogRange, V is the viewDirection
 // ColorFinal = lerp(litColor, fogColor, FogAmount)
-///*
+/*
 float get_fog_amount(float3 viewDirection, float fogStart, float fogRange)
 {
 	return saturate((length(viewDirection) - fogStart) / fogRange);
 }
-//*/
+*/
 
 // Vertex Shader
 VS_OUTPUT vertex_shader(VS_INPUT IN, uniform bool fogEnabled)
