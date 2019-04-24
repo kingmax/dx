@@ -79,7 +79,7 @@
         <focallength>5.572669</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>0.8288463 7.921558E-07 -0.5594768 0 -0.1435992 0.9665001 -0.2127359 0 0.5407342 0.2566657 0.80108 0 3.440209 2.159851 4.329502 1 </viewtransform>
+        <viewtransform>0.8288462 8.198049E-07 -0.5594768 0 -0.1435992 0.9665002 -0.2127359 0 0.5407342 0.2566658 0.80108 0 3.440209 2.159851 4.329502 1 </viewtransform>
       </camera>
       <camera type="Top" scene="../../ch8_GleamingTheCube/Document1.dae#Scene">
         <focallength>2.410255</focallength>
@@ -103,7 +103,7 @@
         <focallength>3.502913</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>-0.1854297 6.037585E-07 -0.9826575 0 -0.5998008 0.7921035 0.1131841 0 0.7783667 0.6103864 -0.1468792 0 2.686629 2.067248 -0.5775877 1 </viewtransform>
+        <viewtransform>-0.1854294 5.976964E-07 -0.9826575 0 -0.5998006 0.7921035 0.1131842 0 0.7783665 0.6103865 -0.1468792 0 2.686629 2.067248 -0.5775877 1 </viewtransform>
       </camera>
       <camera type="Top" scene="../../ch8_GleamingTheCube/Document1.dae#Scene1">
         <focallength>2.410255</focallength>
@@ -127,13 +127,13 @@
         <focallength>9.52797</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>0.5249767 1.694881E-06 -0.8511166 0 -0.4624475 0.839512 -0.2852402 0 0.7145221 0.5433411 0.4407248 0 6.80813 5.223532 4.164675 1 </viewtransform>
+        <viewtransform>0.5249766 1.697621E-06 -0.8511167 0 -0.4624474 0.8395119 -0.2852402 0 0.714522 0.5433411 0.440725 0 6.80813 5.223532 4.164675 1 </viewtransform>
       </camera>
       <camera type="Top" scene="../../ch8_GleamingTheCube/Document1.dae#Scene2">
         <focallength>2.410255</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999999 0 0 0.9999999 5.960464E-08 0 0 2.410255 0 1 </viewtransform>
+        <viewtransform>1 0 0 0 0 5.960464E-08 -0.9999998 0 0 0.9999998 5.960464E-08 0 0 2.410255 0 1 </viewtransform>
       </camera>
       <camera type="Front" scene="../../ch8_GleamingTheCube/Document1.dae#Scene2">
         <focallength>2.410255</focallength>
@@ -145,13 +145,13 @@
         <focallength>2.410255</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>5.960464E-08 0 -0.9999999 0 0 1 0 0 0.9999999 0 5.960464E-08 0 2.410255 0 0 1 </viewtransform>
+        <viewtransform>5.960464E-08 0 -0.9999998 0 0 1 0 0 0.9999998 0 5.960464E-08 0 2.410255 0 0 1 </viewtransform>
       </camera>
       <camera type="Perspective" scene="../../ch8_GleamingTheCube/Document1.dae#Scene2">
-        <focallength>9.394292</focallength>
+        <focallength>6.80824</focallength>
         <fov>40</fov>
         <zoomrect>0 0 1 1</zoomrect>
-        <viewtransform>0.3913622 1.078491E-06 -0.9202369 0 -0.5617 0.7921041 -0.2388813 0 0.7289231 0.6103859 0.3100001 0 7.086458 5.620911 2.608291 1 </viewtransform>
+        <viewtransform>-0.4442107 9.292076E-06 -0.8959221 0 -0.6471215 0.6915801 0.320859 0 0.6196049 0.7222998 -0.3072015 0 3.799646 4.715894 -2.28743 1 </viewtransform>
       </camera>
       <renderPort name="Render" />
     </FXComposer.Scene.Services.FXRenderPortService>
@@ -184,7 +184,7 @@
         <ticks_interval_in_units value="0.3464102" />
       </grid_settings>
       <grid_settings sceneUri="../../ch8_GleamingTheCube/Document1.dae#Scene2">
-        <show_grid value="True" />
+        <show_grid value="False" />
         <axes_color value="0, 0, 0, 1" />
         <size value="17.32051" />
         <major_ticks_color value="0.25, 0.25, 0.25, 1" />
