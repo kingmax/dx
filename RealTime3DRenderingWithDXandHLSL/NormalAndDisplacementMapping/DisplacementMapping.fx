@@ -1,22 +1,16 @@
 #include "../LightingModes/Common.fxh"
 
 /*
-The channels of an RGB texture store unsigned 8-bit values and, therefore, have a range of [0,
-255]. But the xyz components of a normalized direction vector have a range of [-1, 1].
-Consequently, the normals must be shifted for storage in the texture and shifted back when the
-vector is sampled. You transform the floating-point vector from [-1, 1] to [0, 255] using the
-following function:
+When displacing a vertex, you do so either inward or outward along its normal, with the
+magnitude sampled from the displacement map. For outward displacement, you use the
+following equation:
 
-f(x) = (0.5x + 0.5) * 255
+Position = Position0 + (Normal * Scale * DisplacementMagnitude)
 
-And you transform it back with the function: f(x) = ( 2x / 255 ) - 1;
+Here, Scale is a shader constant that scales the magnitudes stored within the displacement
+map. For inward displacement, the equation is rewritten as:
 
-In practice, you use an image-manipulation tool such as Adobe Photoshop to encode a normal
-map in RGB texture format. But you’re responsible for shifting the value back into the range
-[-1, 1] when you sample the texture from within your shader. The floating-point division (by
-255) is done for you during the sampling process so that the sampled values will exist in the
-range [0, 1]. Therefore, you only need to shift the sampled vector with this function:
-f(x) = 2x - 1
+Position = Position0 + (Normal * Scale * DisplacementMagnitude - 1)
 */
 
 cbuffer CBufferPerFrame
@@ -58,6 +52,14 @@ cbuffer CBufferPerObject
 		float UIMax = 255.0f;
 		float UIStep = 1.0f;
 	> = {25.0f};
+	
+	float DisplacementScale <
+		string UIName = "Displacement Scale";
+		string UIWidget = "slider";
+		float UIMin = 0.0f;
+		float UIMax = 2.0f;
+		float UIStep = 0.01;
+	> = {0.0f};
 };
 
 Texture2D ColorTexture <
@@ -69,6 +71,11 @@ Texture2D ColorTexture <
 Texture2D NormalMap <
 	string ResourceName = "default_bump_normal.dds";
 	string UIName = "Normal Map";
+	string ResourceType = "2D";
+>;
+
+Texture2D DisplacementMap <
+	string UIName = "Displacement Map";
 	string ResourceType = "2D";
 >;
 
@@ -107,16 +114,24 @@ VS_OUTPUT vertex_shader(VS_INPUT IN)
 {
 	VS_OUTPUT OUT = (VS_OUTPUT)0;
 	
+	OUT.TextureCoordinate = get_corrected_texture_coordinate(IN.TextureCoordinate);
+	if(DisplacementScale > 0.0f)
+	{
+		float displacement = DisplacementMap.SampleLevel(TrilinearSampler, OUT.TextureCoordinate, 0);
+		IN.ObjectPosition.xyz += IN.Normal * DisplacementScale * (displacement - 1);
+	}
+	
 	OUT.Position = mul(IN.ObjectPosition, WorldViewProjection);
 	OUT.Normal = normalize(mul(float4(IN.Normal, 0), World).xyz);
 	OUT.Tangent = normalize(mul(float4(IN.Tangent, 0), World).xyz);
 	OUT.Binormal = cross(OUT.Normal, OUT.Tangent);
-	OUT.TextureCoordinate = get_corrected_texture_coordinate(IN.TextureCoordinate);
-	OUT.LightDirection = normalize(-LightDirection);
 	
 	float3 worldPosition = mul(IN.ObjectPosition, World).xyz;
 	float3 viewDirection = CameraPosition - worldPosition;
 	OUT.ViewDirection = normalize(viewDirection);
+	
+	OUT.LightDirection = normalize(-LightDirection);
+	//OUT.LightDirection = get_light_data(LightPosition, worldPosition, LightRadius); //normalize(-LightDirection);
 	
 	return OUT;
 }
