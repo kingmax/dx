@@ -167,6 +167,10 @@ copy /y "$(TargetPath)" "$(SolutionDir)..\..\lib\"</Command>
       <Project>{df460eab-570d-4b50-9089-2e2fc801bf38}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Game\Game.h" />
+    <ClInclude Include="GameException.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
