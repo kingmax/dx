@@ -157,9 +157,6 @@ copy /y "$(TargetPath)" "$(SolutionDir)..\..\lib\"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="源.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\DirectXTK\DirectXTK_Desktop_2017_Win10.vcxproj">
       <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
     </ProjectReference>
@@ -168,8 +165,16 @@ copy /y "$(TargetPath)" "$(SolutionDir)..\..\lib\"</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Game\Game.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameClock.h" />
     <ClInclude Include="GameException.h" />
+    <ClInclude Include="GameTime.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameClock.cpp" />
+    <ClCompile Include="GameException.cpp" />
+    <ClCompile Include="GameTime.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

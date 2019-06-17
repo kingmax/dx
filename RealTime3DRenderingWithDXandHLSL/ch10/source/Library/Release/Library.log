@@ -1,4 +1,8 @@
-﻿  源.cpp
+﻿  Game.cpp
+d:\git\dx\realtime3drenderingwithdxandhlsl\ch10\source\library\game.cpp(113): warning C4838: 从“UINT”转换到“LONG”需要收缩转换
+  GameClock.cpp
+  GameException.cpp
+  GameTime.cpp
   Library.vcxproj -> D:\git\dx\RealTime3DRenderingWithDXandHLSL\ch10\source\Library\Release\Library.lib
   A subdirectory or file D:\git\dx\RealTime3DRenderingWithDXandHLSL\ch10\source\Library\..\..\lib\ already exists.
           1 file(s) copied.

@@ -1,6 +1,3 @@
-[submodule "RealTime3DRenderingWithDXandHLSL/RealTime3DRenderingWithDXandHLSLorig_srcreal-time-3d-rendering-with-directx-and-hlsl"]
-	path = RealTime3DRenderingWithDXandHLSL/RealTime3DRenderingWithDXandHLSLorig_srcreal-time-3d-rendering-with-directx-and-hlsl
-	url = https://bitbucket.org/pvarcholik/real-time-3d-rendering-with-directx-and-hlsl.git
 [submodule "RealTime3DRenderingWithDXandHLSL/orig_src"]
 	path = RealTime3DRenderingWithDXandHLSL/orig_src
 	url = https://bitbucket.org/pvarcholik/real-time-3d-rendering-with-directx-and-hlsl.git

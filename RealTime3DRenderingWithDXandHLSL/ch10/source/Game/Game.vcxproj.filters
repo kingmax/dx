@@ -19,4 +19,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Library\Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Library\GameClock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Library\GameException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Library\GameTime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

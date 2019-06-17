@@ -21,6 +21,12 @@
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Library\Game.h" />
+    <ClInclude Include="..\Library\GameClock.h" />
+    <ClInclude Include="..\Library\GameException.h" />
+    <ClInclude Include="..\Library\GameTime.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{D99E3D73-2BDA-4AA1-A84C-C36B2BE1248C}</ProjectGuid>
@@ -97,7 +103,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\external\DirectXTK\lib\Win32\Release;$(SolutionDir)..\..\external\Effects11\lib\Win32\Release;$(SolutionDir)..\..\lib;$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;DirextXTK.lib;d3dcompiler.lib;dinput8.lib;dxguid.lib;Effects11d.lib;Libraryd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;d3dcompiler.lib;dinput8.lib;dxguid.lib;Effects11d.lib;Libraryd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,7 +134,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\external\DirectXTK\lib\Win32\Release;$(SolutionDir)..\..\external\Effects11\lib\Win32\Release;$(SolutionDir)..\..\lib;$(WindowsSDK_LibraryPath_x86);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d11.lib;DirextXTK.lib;d3dcompiler.lib;dinput8.lib;dxguid.lib;Effects11.lib;Library.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;DirectXTK.lib;d3dcompiler.lib;dinput8.lib;dxguid.lib;Effects11.lib;Library.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
