@@ -1,9 +1,13 @@
 #include "Game.h"
+#include "GameException.h"
 
 namespace Library
 {
     const UINT Game::DefaultScreenWidth = 1024;
     const UINT Game::DefaultScreenHeight = 768;
+
+	const UINT Game::DefaultFrameRate = 60;
+	const UINT Game::DefaultMultiSamplingCount = 4;
 
     Game::Game(HINSTANCE instance, const std::wstring& windowClass, const std::wstring& windowTitle, int showCommand)
         : mInstance(instance), mWindowClass(windowClass), mWindowTitle(windowTitle), mShowCommand(showCommand),
@@ -55,6 +59,9 @@ namespace Library
     void Game::Run()
     {
         InitializeWindow();
+
+		InitializeDirectX();
+
         Initialize();
 
         MSG message;
@@ -97,6 +104,11 @@ namespace Library
     {
     }
 
+	ID3D11Device1 * Game::Direct3DDevice() const
+	{
+		return nullptr;
+	}
+
     void Game::InitializeWindow()
     {
         ZeroMemory(&mWindow, sizeof(mWindow));
@@ -123,6 +135,18 @@ namespace Library
 
 	void Game::Shutdown()
 	{
+		ReleaseObject(mRenderTargetView);
+		ReleaseObject(mDepthStencilView);
+		ReleaseObject(mSwapChain);
+		ReleaseObject(mDepthStencilBuffer);
+		if (mDirect3DDeviceContext != nullptr)
+		{
+			mDirect3DDeviceContext->ClearState();
+		}
+		ReleaseObject(mDirect3DDeviceContext);
+		ReleaseObject(mDirect3DDevice);
+
+
 		UnregisterClass(mWindowClass.c_str(), mWindow.hInstance);
 	}
 

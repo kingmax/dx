@@ -1,7 +1,10 @@
 #pragma once
 
 #include <windows.h>
-#include <string>
+#pragma once
+
+#include "Common.h"
+//#include <string>
 #include "GameClock.h"
 #include "GameTime.h"
 
@@ -29,6 +32,15 @@ namespace Library
         virtual void Update(const GameTime& gameTime);
         virtual void Draw(const GameTime& gameTime);
 
+
+		ID3D11Device1* Direct3DDevice() const;
+		ID3D11DeviceContext1* Direct3DDeviceContext() const;
+		bool DepthBufferEnabled() const;
+		bool IsFullScreen() const;
+		const D3D11_TEXTURE2D_DESC& BackBufferDesc() const;
+		const D3D11_VIEWPORT& Viewport() const;
+
+
     protected:
         virtual void InitializeWindow();
 		virtual void Shutdown();
@@ -50,6 +62,27 @@ namespace Library
         GameClock mGameClock;
         GameTime mGameTime;
 
+
+		virtual void InitializeDirectX();
+		static const UINT DefaultFrameRate;
+		static const UINT DefaultMultiSamplingCount;
+		D3D_FEATURE_LEVEL mFeatureLevel;
+		ID3D11Device1* mDirect3DDevice;
+		ID3D11DeviceContext1* mDirect3DDeviceContext;
+		IDXGISwapChain1* mSwapChain;
+		UINT mFrameRate;
+		bool mIsFullScreen;
+		bool mDepthStencilBufferEnabled;
+		bool mMultiSamplingEnabled;
+		UINT mMultiSamplingCount;
+		UINT mMultiSamplingQualityLevels;
+		ID3D11Texture2D* mDepthStencilBuffer;
+		D3D11_TEXTURE2D_DESC mBackBufferDesc;
+		ID3D11RenderTargetView* mRenderTargetView;
+		ID3D11DepthStencilView* mDepthStencilView;
+		D3D11_VIEWPORT mViewport;
+
+
     private:
         Game(const Game& rhs);
         Game& operator=(const Game& rhs);
@@ -57,4 +90,5 @@ namespace Library
         POINT CenterWindow(int windowWidth, int windowHeight);
         static LRESULT WINAPI WndProc(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam);		
     };
+
 }
